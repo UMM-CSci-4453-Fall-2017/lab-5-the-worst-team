@@ -71,7 +71,8 @@ pumpkin***[14]($10.13)
 Okay... make that happen. You'll probably have to review the mariaDB string functions. I found it to be a bit of a pain in the butt, but still doable. But now convert your query into a view called `ticketItem` and call the calculated column output by the same name:
 
 ```
-<your work here>
+create view ticketItem as Select concat(rpad(item,10,"*"),"[", amount, "]","(",cast(price as char),")") as ticketItem from inventory, prices Where inventory.id=prices.id;
+
 ```
 
 Now you should be able to do this: 
